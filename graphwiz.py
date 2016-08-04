@@ -1406,7 +1406,9 @@ class NullAction(DragAction):
         dot_widget = self.dot_widget
         item = dot_widget.get_url(x, y)
         nodeid = dot_widget.get_node_id(x,y)
-        dot_widget.set_tooltip_text(nodeid)
+        # gtk.Widget.set_tooltip_text is available since PyGTK 2.12
+        if gtk.pygtk_version >= (2, 12, 0):
+            dot_widget.set_tooltip_text(nodeid)
         if item is None:
             item = dot_widget.get_jump(x, y)
         if item is not None:
