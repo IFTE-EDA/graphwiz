@@ -2083,6 +2083,7 @@ class DotWindow(gtk.Window):
 
     def open_file(self, filename):
         try:
+            filename = os.path.realpath(filename)
             fp = file(filename, 'rt')
             os.chdir(os.path.dirname(filename) or '.')
             if self.wm:
