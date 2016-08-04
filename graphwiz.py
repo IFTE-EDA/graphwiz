@@ -1581,6 +1581,7 @@ class DotWidget(gtk.DrawingArea):
             try:
                 fp = file(self.openfilename, 'rt')
                 self.set_dotcode(fp.read(), self.openfilename)
+                self.zoom_to_fit()
                 fp.close()
             except IOError, ex:
                 dlg = gtk.MessageDialog(type=gtk.MESSAGE_ERROR,
