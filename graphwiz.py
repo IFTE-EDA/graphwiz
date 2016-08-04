@@ -1990,8 +1990,10 @@ class DotWindow(gtk.Window):
         item = gtk.ToolItem()
         #self.highligh_matches("Pid")
         self.search = gtk.Entry()
-        self.search.set_icon_from_stock(1,gtk.STOCK_CLEAR)
-        self.search.connect("icon-press",self.reset_search)
+        # gtk.Entry.set_icon_from_stock is available since PyGTK 2.16
+        if gtk.pygtk_version >= (2, 16, 0):
+            self.search.set_icon_from_stock(1,gtk.STOCK_CLEAR)
+            self.search.connect("icon-press",self.reset_search)
         self.search.connect("changed", self.do_search)
         item.add(self.search)
         toolbar.insert(gtk.SeparatorToolItem(),-1)
