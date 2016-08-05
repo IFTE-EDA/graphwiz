@@ -15,7 +15,8 @@
 # You should have received a copy of the GNU Lesser General Public License
 # along with this program.  If not, see <http://www.gnu.org/licenses/>.
 #
-# Modified by Emanuele D'Osualdo 2012
+# Modified by Emanuele D'Osualdo 2012-2014
+# Modified by Andreas Krinke     2016
 #
 
 '''Visualize dot graphs via the xdot format.'''
